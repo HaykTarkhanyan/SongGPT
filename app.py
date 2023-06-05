@@ -20,7 +20,7 @@ logging.info("App started")
 
 topic = st.text_input("Enter your topic here")
 # TODO change the mutiselect to a dropdown
-song = st.multiselect("Select the song", ["Bohemian Rhapsody", "Hotel california", "Real slim shady", "Դրախտի ալվան ծաղիկ"] + favorite_songs, 
+song = st.multiselect("Select the song", ["Bohemian Rhapsody", "Hotel california", "Real slim shady", "Դրախտի ալվան ծաղիկ"], 
                       default="Real slim shady")
 seriousness = st.slider("How serious is your topic?", 0, 2)
 
