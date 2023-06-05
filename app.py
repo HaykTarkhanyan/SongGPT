@@ -11,8 +11,8 @@ logging.basicConfig(filename='app.log', filemode='a',
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', 
                     level=logging.INFO)
 
-favorite_songs = ['Lake of fire by Nirvana', 'Aerials by SOAD']
-default_song = choice(favorite_songs)
+# favorite_songs = ['Lake of fire by Nirvana', 'Aerials by SOAD']
+# default_song = choice(favorite_songs)
 
 st.title("Your favorite songs about your topic")
 
@@ -20,8 +20,8 @@ logging.info("App started")
 
 topic = st.text_input("Enter your topic here")
 # TODO change the mutiselect to a dropdown
-song = st.multiselect("Select the song", ["Bohemian Rhapsody", "Real slim shady", "Դրախտի ալվան ծաղիկ"] + favorite_songs, 
-                      default=default_song)
+song = st.multiselect("Select the song", ["Bohemian Rhapsody", "Hotel california", "Real slim shady", "Դրախտի ալվան ծաղիկ"] + favorite_songs, 
+                      default="Real slim shady")
 seriousness = st.slider("How serious is your topic?", 0, 2)
 
 seriousness_dict = {0: "serious", 1: "funny", 2: "very funny",}
@@ -46,10 +46,10 @@ if st.button("Submit"):
                                                        messages=[{"role": "user", "content": prompt}])
         response = chat_completion.choices[0].message.content
         
-        
+        st.subheader("Response")
         st.write(response)
-        st.subheader("Cleaned output (might be wrong)")
-        st.write(clean_output(response))
+        # st.subheader("Cleaned output (might be wrong)")
+        # st.write(clean_output(response))
         
         logging.info(f"Response: {response}")
         st.balloons()
