@@ -5,8 +5,6 @@ import openai
 from utils import clean_output
 import os 
 
-os.environ["OPENAI_API_KEY"] = "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"
-
 openai.api_key = os.environ["OPENAI_API_KEY"]
 
 logging.basicConfig(filename='app.log', filemode='a', 
@@ -50,9 +48,9 @@ if st.button("Submit"):
         
         
         st.write(response)
-        st.subheader("Cleaned output")
+        st.subheader("Cleaned output (might be wrong)")
         st.write(clean_output(response))
         
         logging.info(f"Response: {response}")
         st.balloons()
-    
+        st.snow()
